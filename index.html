@@ -11,6 +11,7 @@
 /* =======================
    GLOBAL STYLES
 ======================= */
+
 *{
   margin:0;
   padding:0;
@@ -227,7 +228,8 @@ nav ul li a.active::after{
 }
 
 .about-img{
-  width:80%;
+  width: 150px;
+  height: 200px;
   border-radius:10px;
   margin-bottom:10px;
 }
@@ -353,10 +355,97 @@ nav ul li a.active::after{
   line-height:1.6;
   color:#ccc;
 }
-
+.edu-card ul{
+  color: #aaa;
+  line-height: 1.6;
+}
 .edu-card:hover{
 background: #02154d;
 transform: translateY(-10px);
+}
+
+/* new education work */
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.work img{
+   width: 100%;
+   border-radius: 10px;
+   display: block; 
+   transition: transform 0.5s;
+}
+
+/* Overlay layer */
+.layer{
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 16px;
+    transition: height 0.5s;
+}
+
+.layer h3{
+  font-size: 16px;
+   font-weight: 500;
+   margin-bottom: 20px;
+}
+.layer ul{
+  text-align: left;
+  font-size: 16px;
+  color: #f4cc07f7;
+  }
+
+.layer a{
+    margin-top: 20px;
+    color: #ff004f;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+/* Hover Effects */
+.work:hover img{
+    transform: scale(1.1);
+}
+
+.work:hover .layer{
+    height: 100%;
+}
+
+/* Button */
+.btn{
+   display: block;
+   margin: 50px auto;
+   width: fit-content;
+   border: 1px solid #ff004f;
+   padding: 14px 50px;
+   border-radius: 6px;
+   text-decoration: none;
+   color: #fff;
+   transition: background 0.5s;
+}
+
+.btn:hover{
+    background: #ff004f;
 }
 
 /* ============================= */
@@ -393,7 +482,8 @@ transform: translateY(-10px);
 
 /* Card Style */
 .exp-card{
-  background: linear-gradient(145deg, #111, #1c1c1c);
+  background: #262626;
+/*  background: linear-gradient(145deg, #111, #1c1c1c); */
   padding:40px;
   border-radius:10px;
   text-align:justify;
@@ -402,7 +492,9 @@ transform: translateY(-10px);
 
 /* Hover effect */
 .exp-card:hover{
-background: #02154d;
+  background: linear-gradient(rgba(0,0,0,0.6), #f60569);
+ /* background: #f60569;
+background: #042da9e6;*/ 
 transform: translateY(-10px);
 }
 
@@ -1369,28 +1461,31 @@ nav ul li a{
     <p>Hello!</p>
     <h1>I'm <span>Umm E Farwa</span></h1>
     <h2>Bachelor of Civil Engineering</h2>
-    <a href="CV_4wa.pdf" target="_blank" class="btn btn-primary"> View CV</a>
+    <a href="images/CV_4wa.pdf" target="_blank" class="btn btn-primary"> View CV</a>
     <a href="#project-section" class="btn btn-outline">My Projects</a>
   </div>
 
   <!-- RIGHT SIDE (65%) -->
   <div class="hero-right">
 
-    <div class="slide active" style="background-image:url('FImage.jpeg');"></div>
-    <div class="slide" style="background-image:url('img2.jpeg');"></div>
-    <div class="slide" style="background-image:url('img3.jpeg');"></div>
+    <div class="slide active" style="background-image:url('images/FImage.jpeg');"></div>
+    <div class="slide" style="background-image:url('images/img2.jpeg');"></div>
+    <div class="slide" style="background-image:url('images/img3.jpeg');"></div>
 
   </div>
 
 </section>
 <!-- ================= ABOUT SECTION ================= -->
+ <hr>
  <section class="about-section" id="about-section">
+  <h1 class="section-title">About Me</h1>
+  <div class="edu-underline"></div>
   <div class="about-container">
 
     <!-- LEFT SIDE (35%) -->
     <div class="about-left">
 
-      <img src="Pic_4wa.jpeg" alt="Profile Image" class="about-img">
+      <img src="images/Pic_4wa.jpeg" alt="Profile Image" class="about-img">
 
       <div class="about-details">
         <p><strong>Name:</strong> Umm E Farwa</p>
@@ -1410,7 +1505,7 @@ nav ul li a{
 
     <!-- RIGHT SIDE (65%) -->
     <div class="about-right">
-      <h1>About Me</h1>
+      <!-- <h1>About Me</h1> -->
 
       <p>
         I am Umm E Farwa, currently a final year Civil Engineering student with a strong
@@ -1437,6 +1532,7 @@ nav ul li a{
   </div>
 </section>
 <!-- ================= EDUCATION SECTION ================= -->
+ <hr>
 <section class="education-section" id="education-section">
 
   <h1 class="section-title">Education</h1>
@@ -1445,40 +1541,101 @@ nav ul li a{
   <div class="education-container">
 
     <!-- Card 1 -->
+    <!-- DETAILS CONTENT -->
+  <div class="work">
     <div class="edu-card">
-      <span class="edu-date">2022–2026</span>
-      <h2>Bachelor of Engineering</h2>
-      <h4>NED University of Engineering & Technology Karachi</h4>
-      <p>Civil Engineering | CGPA: 3.50 / 4.00</p>
-      <p><strong>Major Focus:</strong> Structural Design, Advanced Concrete Technology</p>
+      <div class="edu-card-front">
+
+        <span class="edu-date">2022–2026</span>
+        <h2>Bachelor of Engineering</h2>
+        <h4>NED University of Engineering & Technology Karachi</h4>
+
+        <p>Civil Engineering | CGPA: 3.50 / 4.00</p>
+        <p><strong>Major Focus:</strong> Structural Design, Advanced Concrete Technology</p>
+
+        <!--<span class="view-btn">View More</span> -->
+
+      </div>
+            <!--<img src="Images/work-1.png"> -->
+            <div class="layer">
+                <h3>Academic Focus</h3>
+                <p>Research interests include structural systems, advanced concrete materials,and artificial intelligence applications in Civil Engineering.</p>
+      <ul>
+      <li>Structural Design & Analysis</li>
+      <li>Ultra High Performance Concrete (UHPC)</li>
+      <li>Artificial Neural Networks in Civil Engineering</li>
+      <li>Finite Element Structural Simulation</li>
+      </ul>
+                <!-- <a href="#"><i class="fas fa-external-link-alt"></i><i></i></a> -->
+
+            </div>
     </div>
+  </div>
 
     <!-- Card 2 -->
+     <div class="work">
     <div class="edu-card">
+      <div class="edu-card-front">
       <span class="edu-date">2020–2022</span>
       <h2>Intermediate (HSSC)</h2>
       <h4>St. Lawrence’s Govt. Girls Degree College Karachi</h4>
-      <p>Pre-Engineering | 85.45%</p>
+      <p>Pre-Engineering | 85.45% | 2021 - 2022</p>
       <p><strong>Major Focus:</strong> Mathematics, Physics, Chemistry</p>
+      
     </div>
+    <!-- DETAILS CONTENT -->
+  <div class="layer">
 
+    <h3>Academic Details</h3>
+      <p>
+        Higher Secondary School Certificate / Intermediate / A - level 
+      </p>
+    <ul>
+      <li>XI  Annual-2021 | Marks 492/550 | 89.45% | BIE Karachi</li>
+      <li>XII Annual-2022 | Marks 448/550 | 81.45% | BIE Karachi</li>
+      <br>
+      <p><strong>Overall | Marks 940/1100 | 85.45% | Grade A-1</strong></p>
+    
+      <p>Study Period 2020.10 To 2022.05</p>
+    </ul>
+
+    
+  </div>
+  </div>
+</div>
     <!-- Card 3 -->
+     <div class="work">
     <div class="edu-card">
       <span class="edu-date">2018–2020</span>
       <h2>Matriculation (SSC)</h2>
       <h4>Jinnah Foundation Secondary School Karachi</h4>
       <p>Science | 86.24%</p>
       <p><strong>Major Focus:</strong> Mathematics, Physics, Chemistry & Biology</p>
+     <div class="layer">
+
+    <h3>Academic Details</h3>
+      <p>
+        Secondary Secondary School Certificate / Secondary / O - level 
+      </p>
+    <ul>
+      <li>IX  Annual-2019 | Marks 361/425 | 84.94% | BSE Karachi</li>
+      <li> X  Annual-2020 | Marks 372/425 | 87.52% | BSE Karachi</li>
+      <br>
+      <p><strong>Overall | Marks 733/850 | 86.23% | Grade A-1</strong></p>
+    
+      <p>Study Period 2018.04 To 2020.03</p>
+    </ul>
+
+    
+  </div>
     </div>
 
   </div>
-
+</div>
 </section>
 
-<!-- ==============================
-     EXPERIENCE SECTION START
-=================================-->
-
+<!-- ================= EXPERIENCE SECTION START =================-->
+<hr>
 <section class="experience-section" id="experience-section">
 
   <h1 class="section-title">Experience</h1>
@@ -1497,6 +1654,7 @@ nav ul li a{
             <li>Assisted in layout, boring, and pile foundation concreting.</li>
             <li>Prepared RC schedules and Bar Bending Schedules (BBS).</li>
           </ul>
+          
     </div>
 
     <!-- Card 2 -->
@@ -1519,6 +1677,7 @@ nav ul li a{
 <!-- ==============================
      PROJECT SECTION START
 =================================-->
+<hr>
 <section class="project-section" id="project-section">
 
   <h1 class="section-title">ACADEMIC RESEARCH & PROJECTS</h1>
@@ -1577,9 +1736,11 @@ nav ul li a{
     </div>
   </div>
 </section>
+
 <!-- ==============================
      SKILLS SECTION START
 =================================-->
+<hr>
 <section class="skills-section" id="skill-section">
 
   <div class="container">
@@ -1707,6 +1868,7 @@ nav ul li a{
 <!-- ==============================
      CERTIFICATION SECTION START
 =================================-->
+<hr>
 <section class="honor-section" id="honor-section">
 
   <h1 class="section-title">HONORS & CERTIFICATIONS</h1>
@@ -1771,6 +1933,7 @@ nav ul li a{
 <!-- ==============================
      CONTACT SECTION START
 =================================-->
+<hr>
 <section class="contact-section" id="contact-section">
 
 <div class="container">
@@ -1817,7 +1980,7 @@ nav ul li a{
 </div>
 <h3>DOWNLOAD RESUME</h3>
 
-<a href="CV_4wa.pdf" target="_blank" class="cv-btn">
+<a href="images/CV_4wa.pdf" target="_blank" class="cv-btn">
 VIEW CV
 </a>
 
@@ -1871,17 +2034,7 @@ function changeSlide(){
 setInterval(changeSlide, 3500); // 3 seconds
 
 </script>
-<script>
 
-const toggle = document.getElementById("menu-toggle");
-const navbar = document.getElementById("navbar");
 
-toggle.onclick = () => {
-navbar.classList.toggle("active");
-};
-
-</script>
 </body>
 </html>
-
-
